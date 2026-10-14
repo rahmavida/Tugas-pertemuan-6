@@ -1,0 +1,233 @@
+:root {
+    --latar: #f5f3f7;             
+    --tinta: #3d3b4e;             
+    --redup: #8c899b;              
+    --garis: #e2dfeb;              
+    --kolom: #faf9fc;              
+    
+    --aksen: #a29bfe;              
+    --aksen-gelap: #8c7ae6;        
+    --aksen-muda: #f0edfe;
+    
+    --nomor-bg: #e8f8f5;          
+    --nomor-text: #229954;
+    
+    --pos-bg: #fff9e6;           
+    --pos-border: #f7d794;
+    --pos-text: #e67e22;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Manrope", 'Segoe UI', system-ui, sans-serif;
+    background: var(--latar);
+    color: var(--tinta);
+}
+
+.halaman {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 48px 20px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.kepala { grid-column: 1 / -1; }
+.kepala h1 { 
+    margin: 0 0 6px; 
+    font-size: 32px; 
+    font-weight: 800; 
+    letter-spacing: -0.5px;
+    color: var(--tinta);
+}
+.kepala p { margin: 0; max-width: 56ch; color: var(--redup); line-height: 1.6; }
+
+.panel, .hasil {
+    padding: 28px 24px;
+    background: #ffffff;
+    border: 1px solid var(--garis);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(162, 155, 254, 0.08);
+}
+
+.panel { 
+    border-top: 4px solid var(--aksen); 
+}
+
+/* ===== Form ===== */
+label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--tinta);
+}
+
+label b {
+    display: inline-grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--nomor-text);
+    background: var(--nomor-bg);
+    border-radius: 50%;
+}
+
+select {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px 38px 12px 14px;
+    font: inherit;
+    font-size: 14px;
+    color: var(--tinta);
+    background: var(--kolom) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%233d3b4e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 14px center;
+    border: 1.5px solid var(--garis);
+    border-radius: 10px;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+select:disabled { 
+    color: var(--redup); 
+    cursor: not-allowed; 
+    background-color: #f1eff5; 
+    border-color: #e2dfeb;
+}
+
+select:hover:not(:disabled) { 
+    border-color: var(--aksen); 
+}
+
+select:focus-visible, #cari:focus-visible { 
+    outline: none; 
+    border-color: var(--aksen);
+    box-shadow: 0 0 0 3px rgba(162, 155, 254, 0.25); 
+}
+
+#cari {
+    width: 100%;
+    padding: 12px 18px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--aksen);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(162, 155, 254, 0.3);
+}
+
+#cari:hover:not(:disabled) { 
+    background: var(--aksen-gelap); 
+    transform: translateY(-1px);
+}
+
+#cari:disabled { 
+    background: #dfe6e9; 
+    color: #a4b0be;
+    box-shadow: none;
+    cursor: not-allowed; 
+}
+
+/* Hasil */
+.hasil h2 { 
+    margin: 0 0 10px; 
+    font-size: 20px; 
+    color: var(--tinta);
+}
+
+#ringkas { 
+    margin: 0 0 18px; 
+    color: var(--redup); 
+    line-height: 1.6; 
+}
+
+#ringkas.kosong {
+    padding: 36px 20px;
+    text-align: center;
+    border: 2px dashed var(--garis);
+    border-radius: 12px;
+    background-color: var(--kolom);
+}
+
+.wilayah {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin: 0 0 20px;
+    overflow: hidden;
+    background: var(--garis);
+    border: 1px solid var(--garis);
+    border-radius: 12px;
+}
+
+.wilayah div { padding: 12px 14px; background: #ffffff; }
+.wilayah dt { margin: 0 0 2px; font-size: 12px; color: var(--redup); }
+.wilayah dd { margin: 0; font-weight: 600; color: var(--tinta); }
+
+.daftar {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Kartu Hasil Kode Pos */
+.daftar li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    background: var(--pos-bg);
+    border: 1.5px dashed var(--pos-border);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.daftar li:hover { 
+    background: #fff3cd; 
+    border-color: var(--pos-text);
+    transform: translateY(-2px);
+}
+
+.pos {
+    display: block;
+    font-size: 26px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    color: var(--pos-text);
+    letter-spacing: 0.5px;
+}
+
+.kel { 
+    display: block; 
+    margin-top: 6px; 
+    font-size: 14px; 
+    font-weight: 700; 
+    color: var(--tinta);
+}
+
+.wil {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--redup);
+}
+
+@media (max-width: 760px) {
+    .halaman { grid-template-columns: 1fr; }
+    .wilayah { grid-template-columns: 1fr; }
+}

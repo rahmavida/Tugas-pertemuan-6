@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cari Kode Pos Indonesia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="halaman">
+        <header class="kepala">
+            <h1>Cari Kode Pos</h1>
+            <p>Pilih wilayah dari provinsi sampai kecamatan untuk melihat kode pos setiap kelurahan atau desa di Pulau Jawa.</p>
+        </header>
+
+        <form id="form" class="panel">
+            <label for="provinsi"><b>1</b>Provinsi</label>
+            <select id="provinsi"></select>
+
+            <label for="kabupaten"><b>2</b>Kabupaten/Kota</label>
+            <select id="kabupaten"></select>
+
+            <label for="kecamatan"><b>3</b>Kecamatan</label>
+            <select id="kecamatan"></select>
+
+            <button type="submit" id="cari" disabled>Cari kode pos</button>
+        </form>
+
+        <section class="hasil" aria-live="polite">
+            <h2>Hasil pencarian</h2>
+            <p id="ringkas" class="kosong">Pilih provinsi, kabupaten/kota, dan kecamatan, lalu tekan Cari kode pos.</p>
+            <dl id="wilayah" class="wilayah" hidden></dl>
+            <ul id="daftar" class="daftar"></ul>
+        </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
