@@ -569,5 +569,5 @@ Skenario ini disusun berdasarkan logika kode dan isi data, bukan hasil eksekusi 
 - **Seluruh data dimuat sekaligus** (berkas `data.js` berukuran sekitar 570 KB) saat halaman dibuka.
 - **Pencarian hanya lewat dropdown.** Belum ada fitur mengetik kode pos atau nama kelurahan secara langsung.
 - Font Manrope memerlukan internet. Tanpa internet, tampilan memakai font cadangan.
-- 
+  
 [Kembali ke daftar isi](#daftar-isi)
